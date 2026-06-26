@@ -1,0 +1,1092 @@
+/* NeuroFlow AI - Premium CSS Design System & Layout System */
+
+/* ---------------------------------------------------------------- */
+/* 1. CSS VARIABLES & SYSTEM DESIGN TOKENS */
+/* ---------------------------------------------------------------- */
+:root {
+    /* Color Palette */
+    --color-bg: #050609;
+    --color-bg-alt: #0a0b12;
+    --color-card-bg: rgba(14, 16, 27, 0.5);
+    --color-card-hover: rgba(20, 24, 40, 0.7);
+    --color-border: rgba(255, 255, 255, 0.05);
+    
+    --color-cyan: #00f0ff;
+    --color-cyan-glow: rgba(0, 240, 255, 0.25);
+    --color-purple: #ae3df2;
+    --color-purple-glow: rgba(174, 61, 242, 0.25);
+    --color-emerald: #00ff87;
+    --color-emerald-glow: rgba(0, 255, 135, 0.25);
+    
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #94a3b8;
+    --color-text-muted: #64748b;
+    
+    /* Typography */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Animation Easing & Timing Constraints */
+    --transition-micro: all 180ms cubic-bezier(0.16, 1, 0.3, 1); /* Hovers/Toggles (150ms-200ms ease-out) */
+    --transition-reflow: all 350ms cubic-bezier(0.4, 0, 0.2, 1); /* Layout shifts (300ms-400ms ease-in-out) */
+}
+
+/* ---------------------------------------------------------------- */
+/* 2. BASE RESET & SEO OPTIMIZATION */
+/* ---------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+body {
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(174, 61, 242, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.04) 0%, transparent 40%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-cyan);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ---------------------------------------------------------------- */
+/* 3. TRANSITIONS & HOVERS (MICRO-INTERACTIONS CONSTRAINTS) */
+/* ---------------------------------------------------------------- */
+a, button, select, .bento-card, .pricing-card {
+    transition: var(--transition-micro);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-cyan), var(--color-purple));
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 15px var(--color-cyan-glow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 240, 255, 0.45);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: var(--color-cyan);
+}
+
+/* Header & Logo */
+.site-header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(5, 6, 9, 0.7);
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-orb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-cyan), var(--color-purple));
+    box-shadow: 0 0 10px var(--color-cyan-glow);
+    animation: orbPulse 3s infinite ease-in-out;
+}
+
+@keyframes orbPulse {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.15); filter: brightness(1.3); }
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.logo-text .highlight {
+    color: var(--color-cyan);
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+.main-nav a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.main-nav a:hover {
+    color: var(--color-cyan);
+}
+
+/* ---------------------------------------------------------------- */
+/* 4. HERO SECTION WITH CANVAS BACKGROUND */
+/* ---------------------------------------------------------------- */
+.hero-section {
+    position: relative;
+    padding: 120px 0 160px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: auto;
+}
+
+.hero-glow {
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, rgba(174, 61, 242, 0.04) 50%, transparent 100%);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.hero-badge, .hero-title, .hero-subtitle, .hero-actions {
+    pointer-events: auto; /* Keep button links active over the absolute canvas background */
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--color-border);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-text-secondary);
+    margin-bottom: 24px;
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-cyan);
+    box-shadow: 0 0 6px var(--color-cyan);
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--color-cyan), var(--color-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    max-width: 640px;
+    font-size: 17px;
+    color: var(--color-text-secondary);
+    margin-bottom: 40px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+}
+
+/* ---------------------------------------------------------------- */
+/* 5. COGNITIVE BENTO / ACCORDION SHOWCASE */
+/* ---------------------------------------------------------------- */
+.features-section {
+    padding: 100px 0;
+    background-color: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-tag {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-cyan);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.section-desc {
+    max-width: 500px;
+    margin: 0 auto;
+    color: var(--color-text-secondary);
+    font-size: 15px;
+}
+
+/* Desktop Grid Configuration */
+.bento-accordion-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.card-large {
+    grid-column: span 2;
+}
+
+.card-medium {
+    grid-column: span 2;
+}
+
+.bento-card {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.bento-card:hover {
+    background-color: var(--color-card-hover);
+    border-color: rgba(0, 240, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.bento-card.active {
+    border-color: var(--color-cyan);
+    box-shadow: 0 0 20px var(--color-cyan-glow);
+}
+
+.card-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-visual {
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.01);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.card-content {
+    padding: 24px;
+}
+
+.card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: rgba(0, 240, 255, 0.05);
+    color: var(--color-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.bento-card:nth-child(even) .card-icon {
+    background-color: rgba(174, 61, 242, 0.05);
+    color: var(--color-purple);
+}
+
+.card-content h3 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.card-content p {
+    color: var(--color-text-secondary);
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+/* Bento Visual Elements */
+.flow-nodes {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.flow-node {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.02);
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+}
+
+.flow-node.active {
+    background-color: rgba(0, 240, 255, 0.05);
+    border-color: var(--color-cyan);
+    color: var(--color-cyan);
+}
+
+.flow-node.glow-cyan {
+    box-shadow: 0 0 15px var(--color-cyan-glow);
+}
+
+.flow-line {
+    width: 40px;
+    height: 2px;
+    background-color: var(--color-border);
+    position: relative;
+}
+
+.flow-line::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 20px;
+    background-color: var(--color-cyan);
+    animation: flowMove 2s infinite linear;
+}
+
+@keyframes flowMove {
+    0% { left: 0; opacity: 0; }
+    50% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}
+
+/* Radar */
+.anomaly-radar {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid rgba(174, 61, 242, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.radar-sweep {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, rgba(174, 61, 242, 0.15) 0deg, transparent 90deg);
+    animation: sweep 3s infinite linear;
+}
+
+@keyframes sweep {
+    to { transform: rotate(360deg); }
+}
+
+.ping {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-purple);
+    box-shadow: 0 0 10px var(--color-purple);
+}
+
+.ping-1 { top: 25px; left: 30px; }
+.ping-2 { bottom: 30px; right: 25px; }
+
+/* Chart Pulse */
+.chart-pulse {
+    animation: chartPulse 2s infinite alternate ease-in-out;
+}
+
+@keyframes chartPulse {
+    0% { r: 4; fill: var(--color-cyan); }
+    100% { r: 6.5; fill: #fff; filter: drop-shadow(0 0 4px var(--color-cyan)); }
+}
+
+/* Agent Matrix */
+.agent-matrix {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.agent-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.05);
+    border: 1px solid var(--color-border);
+    position: relative;
+}
+
+.agent-dot.active {
+    background-color: var(--color-purple);
+    border-color: var(--color-purple);
+}
+
+.agent-dot.active::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    border: 1px solid rgba(174, 61, 242, 0.4);
+    animation: agentPulse 2s infinite ease-in-out;
+}
+
+@keyframes agentPulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* ---------------------------------------------------------------- */
+/* 6. MATRIX PRICING MATRIX */
+/* ---------------------------------------------------------------- */
+.pricing-section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.pricing-glow {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(174, 61, 242, 0.05) 0%, transparent 80%);
+    filter: blur(90px);
+    pointer-events: none;
+}
+
+.pricing-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 48px;
+}
+
+/* Pricing Toggle Switch (150ms micro transition constraint) */
+.toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--color-border);
+    padding: 6px 16px;
+    border-radius: 30px;
+}
+
+.toggle-label {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    transition: var(--transition-micro);
+}
+
+.toggle-label.active {
+    color: var(--color-text-primary);
+}
+
+.discount-badge {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background-color: rgba(0, 255, 135, 0.1);
+    color: var(--color-emerald);
+    font-weight: 600;
+}
+
+.toggle-btn {
+    width: 48px;
+    height: 24px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-btn:focus {
+    box-shadow: 0 0 0 2px var(--color-cyan-glow);
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--color-text-primary);
+    transition: var(--transition-micro);
+}
+
+.toggle-btn.active .toggle-slider {
+    left: 26px;
+    background-color: var(--color-cyan);
+}
+
+/* Custom Dropdown select (no re-renders) */
+.custom-select-wrapper select {
+    background-color: rgba(255,255,255,0.02);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+}
+
+.custom-select-wrapper select:focus {
+    border-color: var(--color-cyan);
+}
+
+/* Pricing Grid */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.pricing-card {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.pricing-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    box-shadow: inset 0 0 15px rgba(255,255,255,0.01);
+    pointer-events: none;
+    transition: var(--transition-micro);
+}
+
+.pricing-card:hover::after {
+    box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.05);
+}
+
+.pricing-card:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.pricing-card.popular {
+    border-color: var(--color-purple);
+    background: radial-gradient(circle at 100% 0%, rgba(174, 61, 242, 0.08) 0%, transparent 60%),
+                rgba(14, 16, 27, 0.6);
+    box-shadow: 0 10px 30px rgba(174, 61, 242, 0.08);
+}
+
+.popular-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: var(--color-purple);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.pricing-header {
+    margin-bottom: 24px;
+}
+
+.tier-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tier-price-group {
+    display: flex;
+    align-items: baseline;
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+.currency-symbol {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.price-val {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--color-text-primary);
+    line-height: 1;
+}
+
+.price-period {
+    font-size: 13.5px;
+    color: var(--color-text-muted);
+    margin-left: 4px;
+}
+
+.tier-desc {
+    font-size: 13.5px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+.tier-features {
+    list-style: none;
+    margin-bottom: 32px;
+    flex: 1;
+}
+
+.tier-features li {
+    font-size: 13.5px;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.tier-features li i {
+    width: 16px;
+    height: 16px;
+    color: var(--color-emerald);
+}
+
+.btn-pricing-action {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-pricing-action:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-text-primary);
+}
+
+.btn-pricing-action.highlight {
+    background: linear-gradient(135deg, var(--color-cyan), var(--color-purple));
+    color: #fff;
+    border: none;
+}
+
+.btn-pricing-action.highlight:hover {
+    box-shadow: 0 4px 15px var(--color-cyan-glow);
+}
+
+/* ---------------------------------------------------------------- */
+/* 7. SOCIAL PROOF (TESTIMONIALS) */
+/* ---------------------------------------------------------------- */
+.social-proof-section {
+    padding: 100px 0;
+    background-color: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.testimonial-card {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 32px;
+}
+
+.stars {
+    display: flex;
+    gap: 4px;
+    color: #f59e0b;
+    margin-bottom: 16px;
+}
+
+.stars i {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
+
+.quote {
+    font-size: 15px;
+    color: var(--color-text-primary);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.user-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.user-company {
+    font-size: 11.5px;
+    color: var(--color-text-muted);
+}
+
+/* ---------------------------------------------------------------- */
+/* 8. FOOTER */
+/* ---------------------------------------------------------------- */
+.site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: 60px 0 40px;
+    background-color: var(--color-bg);
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.footer-brand {
+    max-width: 320px;
+}
+
+.footer-brand p {
+    color: var(--color-text-secondary);
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--color-border);
+    padding-top: 24px;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 12px;
+}
+
+/* ---------------------------------------------------------------- */
+/* 9. REAL-TIME TELEMETRY INSPECTOR DEBUGGER PANEL */
+/* ---------------------------------------------------------------- */
+.monitor-panel {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 330px;
+    height: 210px;
+    background-color: rgba(5, 7, 12, 0.85);
+    border: 1px solid rgba(0, 240, 255, 0.15);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(16px);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: monospace;
+    font-size: 11px;
+    transition: var(--transition-micro);
+}
+
+.monitor-panel:hover {
+    border-color: rgba(0, 240, 255, 0.4);
+    box-shadow: 0 10px 40px rgba(0, 240, 255, 0.1);
+}
+
+.monitor-header {
+    padding: 10px 14px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-cyan);
+}
+
+.monitor-title {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.term-icon {
+    width: 12px;
+    height: 12px;
+    stroke-width: 2.5px;
+}
+
+#clear-console-btn {
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+#clear-console-btn:hover {
+    color: #f8fafc;
+}
+
+.monitor-logs {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--color-text-secondary);
+}
+
+.log-entry {
+    line-height: 1.4;
+    word-break: break-all;
+}
+
+.log-entry.system { color: var(--color-text-muted); }
+.log-entry.mutate { color: var(--color-cyan); }
+.log-entry.success { color: var(--color-emerald); }
+.log-entry.warn { color: var(--color-purple); }
+
+/* ---------------------------------------------------------------- */
+/* 10. MOBILE ACCORDION REFLOW & ANIMATION DETAILS */
+/* ---------------------------------------------------------------- */
+@media (max-width: 767px) {
+    /* Main Layout */
+    .hero-title {
+        font-size: 38px;
+    }
+    
+    /* Bento-to-Accordion Wrapper (Reflow constraints) */
+    .bento-accordion-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .card-large, .card-medium {
+        grid-column: auto;
+    }
+    
+    .bento-card {
+        border-radius: 12px;
+        transition: var(--transition-micro);
+    }
+    
+    /* Accordion Logic: Flex Column Reverse flips header and content visually */
+    .bento-card .card-inner {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+    /* Accordion Trigger (Always visible) */
+    .bento-card .card-content {
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        user-select: none;
+    }
+    
+    .bento-card .card-icon {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+    
+    .bento-card .card-content h3 {
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+    
+    .bento-card .card-content p {
+        display: none; /* Hide detailed paragraphs on mobile for clean accordion look */
+    }
+    
+    /* Accordion Body (Collapsible using CSS grid template rows transition) */
+    .bento-card .card-visual {
+        border-bottom: none;
+        border-top: 1px solid var(--color-border);
+        height: auto;
+        
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 350ms cubic-bezier(0.4, 0, 0.2, 1); /* 300ms-400ms ease-in-out constraint */
+    }
+    
+    .bento-card .card-visual > * {
+        overflow: hidden;
+        min-height: 0;
+        transition: opacity 250ms ease;
+        opacity: 0;
+    }
+    
+    /* Active State expansion */
+    .bento-card.active .card-visual {
+        grid-template-rows: 1fr;
+    }
+    
+    .bento-card.active .card-visual > * {
+        padding: 24px 0;
+        opacity: 1;
+    }
+
+    /* Pricing Section Mobile */
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .pricing-card {
+        padding: 24px;
+    }
+    
+    /* Social Proof Mobile */
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
