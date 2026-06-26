@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroFlow AI - Next-Gen Data Automation Platform</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="NeuroFlow AI is the premium, high-converting data automation platform powered by advanced AI neural engines. Automate ETL pipelines and cognitive workflows instantly.">
+    <meta name="keywords" content="AI data automation, neural ETL, workflow orchestration, predictive telemetry, Next-Gen AI">
+    <meta name="author" content="NeuroFlow AI Group">
+    
+    <!-- Open Graph (OG) Tags for SEO -->
+    <meta property="og:title" content="NeuroFlow AI - Next-Gen Data Automation Platform">
+    <meta property="og:description" content="Premium, high-converting data automation platform powered by advanced AI neural engines. Automate pipelines at scale.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://neuroflow.ai">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&h=630&fit=crop">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Top Loading Indicator / Performance Orchestrator -->
+    <div id="loader-bar"></div>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-orb"></div>
+                <span class="logo-text">NeuroFlow<span class="highlight">AI</span></span>
+            </div>
+            
+            <nav class="main-nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#social-proof">Social Proof</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-cta">
+                <a href="#pricing" class="btn btn-nav">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Hero Section with Canvas Particle Background -->
+        <section class="hero-section">
+            <canvas id="hero-particles"></canvas>
+            <div class="hero-glow"></div>
+            <div class="container hero-container">
+                <div class="hero-badge" data-animate="fade-up">
+                    <span class="badge-dot"></span> Next-Gen AI Speed Run
+                </div>
+                <h1 class="hero-title" data-animate="fade-up">
+                    Automate Data Pipelines <br>
+                    <span class="gradient-text">At Neural Velocities</span>
+                </h1>
+                <p class="hero-subtitle" data-animate="fade-up">
+                    A premium, high-converting orchestration engine designed for real-time intelligence, deep ETL automation, and performance-isolated analytics telemetry.
+                </p>
+                <div class="hero-actions" data-animate="fade-up">
+                    <a href="#pricing" class="btn btn-primary">Deploy Instantly</a>
+                    <a href="#features" class="btn btn-secondary">Explore Telemetry</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Feature Bento/Accordion Showcase -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Capabilities</span>
+                    <h2 class="section-title">Cognitive Intelligence Suite</h2>
+                    <p class="section-desc">Experience fluid reflows and low-latency interaction nodes built on zero external component dependencies.</p>
+                </div>
+
+                <!-- Bento Grid (Desktop) / Accordion (Mobile) Wrapper -->
+                <div class="bento-accordion-container" id="bento-accordion">
+                    
+                    <!-- Bento Node 0: ETL Orchestration -->
+                    <div class="bento-card card-large" data-index="0">
+                        <div class="card-inner">
+                            <div class="card-visual">
+                                <div class="flow-nodes">
+                                    <div class="flow-node active">
+                                        <i data-lucide="database"></i>
+                                    </div>
+                                    <div class="flow-line"></div>
+                                    <div class="flow-node active glow-cyan">
+                                        <i data-lucide="cpu"></i>
+                                    </div>
+                                    <div class="flow-line"></div>
+                                    <div class="flow-node">
+                                        <i data-lucide="terminal"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-icon"><i data-lucide="git-branch"></i></div>
+                                <h3>Neural ETL Orchestration</h3>
+                                <p>Ingest, clean, and transform multi-dimensional streams through high-frequency pipelines without pipeline blockages.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bento Node 1: Anomaly Engine -->
+                    <div class="bento-card" data-index="1">
+                        <div class="card-inner">
+                            <div class="card-visual">
+                                <div class="anomaly-radar">
+                                    <div class="radar-sweep"></div>
+                                    <span class="ping ping-1"></span>
+                                    <span class="ping ping-2"></span>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-icon"><i data-lucide="shield-alert"></i></div>
+                                <h3>Cognitive Anomaly Detection</h3>
+                                <p>Automated vector scanning intercepts telemetry deviations under 10 milliseconds.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bento Node 2: Analytics Telemetry -->
+                    <div class="bento-card" data-index="2">
+                        <div class="card-inner">
+                            <div class="card-visual">
+                                <svg class="visual-chart" viewBox="0 0 180 80" aria-label="Performance Graph">
+                                    <path d="M 0,60 Q 30,10 60,45 T 120,20 T 180,50 L 180,80 L 0,80 Z" fill="rgba(0, 240, 255, 0.05)" stroke="var(--color-cyan)" stroke-width="2"></path>
+                                    <circle cx="120" cy="20" r="4" fill="var(--color-cyan)" class="chart-pulse"></circle>
+                                </svg>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-icon"><i data-lucide="line-chart"></i></div>
+                                <h3>Predictive Telemetry</h3>
+                                <p>Inspect future load curves through dynamic regional data forecasting.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bento Node 3: Multi-Agent Sync -->
+                    <div class="bento-card card-medium" data-index="3">
+                        <div class="card-inner">
+                            <div class="card-visual">
+                                <div class="agent-matrix">
+                                    <div class="agent-dot active"></div>
+                                    <div class="agent-dot active"></div>
+                                    <div class="agent-dot"></div>
+                                    <div class="agent-dot active"></div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-icon"><i data-lucide="network"></i></div>
+                                <h3>Multi-Agent Synchronization</h3>
+                                <p>Deploy specialized micro-agents that negotiate, self-configure, and sync across networks.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Tier Matrix Section -->
+        <section id="pricing" class="pricing-section">
+            <div class="pricing-glow"></div>
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Flexible Plans</span>
+                    <h2 class="section-title">Matrix-Driven Pricing</h2>
+                    <p class="section-desc">Dynamic currency calculation with state updates isolated to targeted elements.</p>
+                </div>
+
+                <!-- Pricing Controllers (Billing Cycle & Currency) -->
+                <div class="pricing-controls">
+                    <div class="toggle-wrapper">
+                        <span class="toggle-label active" id="label-monthly">Monthly</span>
+                        <button class="toggle-btn" id="billing-toggle" aria-label="Toggle Billing Cycle">
+                            <span class="toggle-slider"></span>
+                        </button>
+                        <span class="toggle-label" id="label-annual">Annual <span class="discount-badge">Save 20%</span></span>
+                    </div>
+
+                    <div class="custom-select-wrapper">
+                        <select id="currency-select" aria-label="Select Currency">
+                            <option value="USD">USD ($)</option>
+                            <option value="INR">INR (₹)</option>
+                            <option value="EUR">EUR (€)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Pricing Grid -->
+                <div class="pricing-grid">
+                    
+                    <!-- Developer Tier -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <span class="tier-name">Developer</span>
+                            <div class="tier-price-group">
+                                <span class="currency-symbol" id="symbol-developer">$</span>
+                                <span class="price-val" id="price-developer">19</span>
+                                <span class="price-period">/mo</span>
+                            </div>
+                            <p class="tier-desc">Perfect for testing cognitive pipelines in sandbox environments.</p>
+                        </div>
+                        <ul class="tier-features" aria-label="Developer Plan Features">
+                            <li><i data-lucide="check"></i> 5,000 Sync Tasks / mo</li>
+                            <li><i data-lucide="check"></i> Standard Anomaly Scanner</li>
+                            <li><i data-lucide="check"></i> Single Agent Pipeline</li>
+                            <li><i data-lucide="check"></i> 1 Day Telemetry Log</li>
+                        </ul>
+                        <button class="btn btn-pricing-action">Deploy Sandbox</button>
+                    </div>
+
+                    <!-- Scale Tier -->
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="pricing-header">
+                            <span class="tier-name">Scale</span>
+                            <div class="tier-price-group">
+                                <span class="currency-symbol" id="symbol-scale">$</span>
+                                <span class="price-val" id="price-scale">59</span>
+                                <span class="price-period">/mo</span>
+                            </div>
+                            <p class="tier-desc">Designed for production-ready systems scaling workloads daily.</p>
+                        </div>
+                        <ul class="tier-features" aria-label="Scale Plan Features">
+                            <li><i data-lucide="check"></i> 50,000 Sync Tasks / mo</li>
+                            <li><i data-lucide="check"></i> Real-time Anomaly Scanner</li>
+                            <li><i data-lucide="check"></i> 5 Multi-Agent Sync channels</li>
+                            <li><i data-lucide="check"></i> 30 Days Telemetry Log</li>
+                        </ul>
+                        <button class="btn btn-pricing-action highlight">Deploy Production</button>
+                    </div>
+
+                    <!-- Enterprise Tier -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <span class="tier-name">Enterprise</span>
+                            <div class="tier-price-group">
+                                <span class="currency-symbol" id="symbol-enterprise">$</span>
+                                <span class="price-val" id="price-enterprise">139</span>
+                                <span class="price-period">/mo</span>
+                            </div>
+                            <p class="tier-desc">For heavy workloads requiring dedicated infrastructure.</p>
+                        </div>
+                        <ul class="tier-features" aria-label="Enterprise Plan Features">
+                            <li><i data-lucide="check"></i> Unlimited Sync Tasks</li>
+                            <li><i data-lucide="check"></i> Predictive Telemetry Suite</li>
+                            <li><i data-lucide="check"></i> Dedicated Neural cluster</li>
+                            <li><i data-lucide="check"></i> Unlimited History + 24/7 SLA</li>
+                        </ul>
+                        <button class="btn btn-pricing-action">Consult Engineers</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof Section -->
+        <section id="social-proof" class="social-proof-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Validation</span>
+                    <h2 class="section-title">Engineered for Reliability</h2>
+                    <p class="section-desc">How leaders leverage NeuroFlow to accelerate their automation workloads.</p>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+                        <p class="quote">"Integrating NeuroFlow reduced our data replication latencies from minutes to under 500ms. It has redefined our operations."</p>
+                        <div class="user-meta">
+                            <span class="user-name">Marcus Vance</span>
+                            <span class="user-company">Data Architecture Director, Voxel Labs</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+                        <p class="quote">"The state isolation is incredible—zero UI latency. It holds up under absolute peak traffic cycles perfectly."</p>
+                        <div class="user-meta">
+                            <span class="user-name">Clara Rossi</span>
+                            <span class="user-company">Head of Platform, Cloudscale Inc.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-orb"></div>
+                    <span class="logo-text">NeuroFlow<span class="highlight">AI</span></span>
+                </div>
+                <p>Advanced AI-driven data automation. Experience the next level of cognitive telemetry.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NeuroFlow AI. Built with zero dependencies for Frontend Battle Speed Run.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Real-Time Re-render Debugger Panel / Telemetry Monitor -->
+    <div id="telemetry-monitor" class="monitor-panel">
+        <div class="monitor-header">
+            <span class="monitor-title"><i data-lucide="terminal" class="term-icon"></i> DOM Monitor</span>
+            <button id="clear-console-btn" title="Clear Log Trace"><i data-lucide="trash-2"></i></button>
+        </div>
+        <div class="monitor-logs" id="console-logs">
+            <div class="log-entry system">[Monitor Init] Tracking active. Listening for pricing mutations...</div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+    <script>
+        // Init Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
